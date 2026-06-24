@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sunghwan (Kai) Cho — CV & AI Engineer</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #ffffff;
+      --bg-secondary: #f6f6f4;
+      --text: #1a1a1a;
+      --text-secondary: #6b6b6b;
+      --text-tertiary: #999;
+      --border: rgba(0,0,0,0.10);
+      --border-hover: rgba(0,0,0,0.22);
+      --blue: #378ADD;
+      --blue-dark: #185FA5;
+      --blue-bg: #E6F1FB;
+      --blue-text: #0C447C;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111110;
+        --bg-secondary: #1c1c1a;
+        --text: #e8e8e6;
+        --text-secondary: #8a8a86;
+        --text-tertiary: #555;
+        --border: rgba(255,255,255,0.10);
+        --border-hover: rgba(255,255,255,0.22);
+        --blue: #5BA3E8;
+        --blue-dark: #85B7EB;
+        --blue-bg: #0c2a42;
+        --blue-text: #85B7EB;
+      }
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* NAV */
+    .nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.25rem 2.5rem;
+      border-bottom: 0.5px solid var(--border);
+      position: sticky; top: 0;
+      background: var(--bg);
+      z-index: 100;
+    }
+    .nav-name { font-size: 15px; font-weight: 500; display: flex; align-items: center; gap: 8px; }
+    .nav-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--blue); display: inline-block; }
+    .nav-links { display: flex; gap: 1.75rem; }
+    .nav-links a { font-size: 13px; color: var(--text-secondary); transition: color 0.15s; }
+    .nav-links a:hover { color: var(--blue); }
+
+    /* HERO */
+    .hero { padding: 5rem 2.5rem 4rem; max-width: 820px; }
+    .status-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 12px; padding: 5px 12px; border-radius: 99px;
+      background: var(--blue-bg); color: var(--blue-text);
+      margin-bottom: 1.5rem;
+    }
+    .status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--blue); }
+    .hero-tag {
+      font-size: 12px; color: var(--blue); letter-spacing: 0.08em;
+      text-transform: uppercase; margin-bottom: 1.25rem;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .hero-tag::before { content: ''; width: 20px; height: 1px; background: var(--blue); }
+    .hero h1 { font-size: 44px; font-weight: 500; line-height: 1.18; letter-spacing: -0.03em; margin-bottom: 1.25rem; }
+    .hero h1 span { color: var(--text-secondary); }
+    .hero-desc { font-size: 16px; color: var(--text-secondary); line-height: 1.75; max-width: 540px; margin-bottom: 2rem; }
+    .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-primary {
+      font-size: 13px; padding: 10px 22px;
+      background: var(--blue); color: #fff;
+      border-radius: var(--radius-md); border: none;
+      cursor: pointer; transition: opacity 0.15s;
+    }
+    .btn-primary:hover { opacity: 0.85; }
+    .btn-secondary {
+      font-size: 13px; padding: 10px 22px;
+      background: transparent; color: var(--text);
+      border-radius: var(--radius-md);
+      border: 0.5px solid var(--border-hover);
+      cursor: pointer; transition: background 0.15s;
+    }
+    .btn-secondary:hover { background: var(--bg-secondary); }
+
+    /* LAYOUT */
+    .divider { height: 0.5px; background: var(--border); margin: 0 2.5rem; }
+    .section { padding: 3.5rem 2.5rem; }
+    .section-label {
+      font-size: 11px; color: var(--blue);
+      letter-spacing: 0.1em; text-transform: uppercase;
+      margin-bottom: 2rem;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .section-label::after { content: ''; flex: 1; height: 0.5px; background: var(--border); }
+
+    /* PROJECTS */
+    .projects-list {
+      display: flex; flex-direction: column; gap: 1px;
+      background: var(--border);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .project-row {
+      display: grid; grid-template-columns: 1fr auto;
+      align-items: start; gap: 1rem;
+      padding: 1.25rem 1.5rem;
+      background: var(--bg);
+      cursor: pointer;
+      transition: background 0.12s, border-left-color 0.12s;
+      border-left: 3px solid transparent;
+      text-decoration: none; color: inherit;
+    }
+    .project-row:hover { background: var(--bg-secondary); border-left-color: var(--blue); }
+    .project-title { font-size: 15px; font-weight: 500; margin-bottom: 4px; }
+    .project-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.55; }
+    .project-badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+    .badge { font-size: 11px; padding: 3px 9px; border-radius: 99px; }
+    .badge-cv  { background: #E6F1FB; color: #0C447C; }
+    .badge-ai  { background: #EEEDFE; color: #3C3489; }
+    .badge-ml  { background: #E1F5EE; color: #085041; }
+    .badge-sys { background: #F1EFE8; color: #444441; }
+    .badge-new { background: #FAEEDA; color: #633806; }
+    .project-arrow { color: var(--text-tertiary); margin-top: 2px; font-size: 18px; transition: color 0.15s, transform 0.15s; }
+    .project-row:hover .project-arrow { color: var(--blue); transform: translateX(3px); }
+
+    /* SKILLS */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; }
+    .skill-card {
+      background: var(--bg-secondary); border-radius: var(--radius-lg);
+      padding: 1.25rem;
+      border: 0.5px solid var(--border);
+      transition: border-color 0.15s;
+    }
+    .skill-card:hover { border-color: var(--blue); }
+    .skill-card-label { font-size: 11px; color: var(--blue); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
+    .skill-card-title { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+    .tag {
+      font-size: 11px; padding: 3px 8px; border-radius: 99px;
+      background: var(--bg); border: 0.5px solid var(--border);
+      color: var(--text-secondary);
+    }
+
+    /* EDUCATION */
+    .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .edu-card {
+      background: var(--bg-secondary); border-radius: var(--radius-lg);
+      padding: 1.25rem; border: 0.5px solid var(--border);
+    }
+    .edu-school { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
+    .edu-degree { font-size: 13px; color: var(--text-secondary); margin-bottom: 2px; }
+    .edu-year { font-size: 12px; color: var(--blue); margin-bottom: 2px; }
+    .course-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+    .chip {
+      font-size: 11px; padding: 3px 8px; border-radius: 4px;
+      background: var(--bg); border: 0.5px solid var(--border);
+      color: var(--text-secondary);
+    }
+    .chip-highlight { border-color: var(--blue); color: var(--blue-text); background: var(--blue-bg); }
+
+    /* CONTACT */
+    .contact-row { display: flex; gap: 1.75rem; flex-wrap: wrap; }
+    .contact-item {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 14px; color: var(--text-secondary);
+      transition: color 0.15s;
+    }
+    .contact-item:hover { color: var(--blue); }
+    .contact-item i { font-size: 17px; }
+
+    /* FOOTER */
+    .footer {
+      padding: 2rem 2.5rem;
+      border-top: 0.5px solid var(--border);
+      font-size: 12px; color: var(--text-tertiary);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      .nav { padding: 1rem 1.25rem; }
+      .nav-links { gap: 1rem; }
+      .hero { padding: 3rem 1.25rem 2.5rem; }
+      .hero h1 { font-size: 30px; }
+      .section { padding: 2.5rem 1.25rem; }
+      .divider { margin: 0 1.25rem; }
+      .edu-grid { grid-template-columns: 1fr; }
+      .footer { padding: 1.5rem 1.25rem; flex-direction: column; gap: 6px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <span class="nav-name"><span class="nav-dot"></span>Sunghwan (Kai) Cho</span>
+  <div class="nav-links">
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="status-pill"><span class="status-dot"></span>Open to opportunities — Canada &amp; Korea</div>
+  <div class="hero-tag">Computer Vision · AI · Software Engineer</div>
+  <h1>Building AI systems<br><span>that see and understand.</span></h1>
+  <p class="hero-desc">SFU Computing Science graduate with a focus on computer vision and applied AI. Bilingual in English and Korean — currently open to roles in Canada and South Korea.</p>
+  <div class="hero-cta">
+    <a class="btn-primary" href="#projects">View projects</a>
+    <a class="btn-secondary" href="#contact">Get in touch</a>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- PROJECTS -->
+<div class="section" id="projects">
+  <div class="section-label">Projects</div>
+  <div class="projects-list">
+
+    <a class="project-row" href="https://github.com/" target="_blank">
+      <div>
+        <div class="project-title">Vision-Based Defect Detection — Semiconductor Manufacturing</div>
+        <div class="project-desc">Class-imbalance-aware defect prediction on UCI SECOM dataset using XGBoost/LightGBM. Explores synthetic data augmentation to address rare defect classes in manufacturing.</div>
+        <div class="project-badges">
+          <span class="badge badge-cv">Computer Vision</span>
+          <span class="badge badge-ml">Machine Learning</span>
+          <span class="badge badge-new">In progress</span>
+        </div>
+      </div>
+      <div class="project-arrow"><i class="ti ti-arrow-right"></i></div>
+    </a>
+
+    <a class="project-row" href="https://github.com/" target="_blank">
+      <div>
+        <div class="project-title">3D Shape Understanding with DGCNN</div>
+        <div class="project-desc">Implemented and extended Dynamic Graph CNN for 3D point cloud classification. Explored SDF-based shape fitting for geometric representation learning.</div>
+        <div class="project-badges">
+          <span class="badge badge-cv">3D Vision</span>
+          <span class="badge badge-ai">Deep Learning</span>
+        </div>
+      </div>
+      <div class="project-arrow"><i class="ti ti-arrow-right"></i></div>
+    </a>
+
+    <a class="project-row" href="https://github.com/" target="_blank">
+      <div>
+        <div class="project-title">Real-Time Screen Object Recognition</div>
+        <div class="project-desc">Python automation tool using mss + OpenCV template matching for real-time on-screen object detection and autonomous interaction.</div>
+        <div class="project-badges">
+          <span class="badge badge-cv">OpenCV</span>
+          <span class="badge badge-sys">Python</span>
+        </div>
+      </div>
+      <div class="project-arrow"><i class="ti ti-arrow-right"></i></div>
+    </a>
+
+    <a class="project-row" href="https://github.com/" target="_blank">
+      <div>
+        <div class="project-title">AI Meeting Summarizer — Claude API</div>
+        <div class="project-desc">Web app that transcribes and summarizes meeting notes using the Claude API. Built with vanilla HTML/CSS/JS with a clean, minimal interface.</div>
+        <div class="project-badges">
+          <span class="badge badge-ai">LLM / API</span>
+          <span class="badge badge-sys">Web</span>
+        </div>
+      </div>
+      <div class="project-arrow"><i class="ti ti-arrow-right"></i></div>
+    </a>
+
+    <a class="project-row" href="https://github.com/" target="_blank">
+      <div>
+        <div class="project-title">Multi-Agent Path Finding — CBS Heuristics</div>
+        <div class="project-desc">Implemented CG, DG, WDG heuristics and disjoint splitting for Conflict-Based Search in Python. Benchmarked across multiple map configurations.</div>
+        <div class="project-badges">
+          <span class="badge badge-ai">AI / Search</span>
+          <span class="badge badge-sys">Python</span>
+        </div>
+      </div>
+      <div class="project-arrow"><i class="ti ti-arrow-right"></i></div>
+    </a>
+
+    <a class="project-row" href="https://github.com/" target="_blank">
+      <div>
+        <div class="project-title">Superscalar Pipeline Simulator</div>
+        <div class="project-desc">2-wide in-order 5-stage pipeline simulator in C++ with hazard detection, data forwarding, and stall logic. Validated against 9 hand-crafted test cases.</div>
+        <div class="project-badges">
+          <span class="badge badge-sys">C++</span>
+          <span class="badge badge-sys">Systems</span>
+        </div>
+      </div>
+      <div class="project-arrow"><i class="ti ti-arrow-right"></i></div>
+    </a>
+
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SKILLS -->
+<div class="section" id="skills">
+  <div class="section-label">Skills</div>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-card-label">Computer Vision</div>
+      <div class="skill-card-title">Vision & Imaging</div>
+      <div class="skill-tags">
+        <span class="tag">OpenCV</span>
+        <span class="tag">3D Point Cloud</span>
+        <span class="tag">DGCNN</span>
+        <span class="tag">Template Matching</span>
+        <span class="tag">Image Processing</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-label">Machine Learning</div>
+      <div class="skill-card-title">ML & Deep Learning</div>
+      <div class="skill-tags">
+        <span class="tag">PyTorch</span>
+        <span class="tag">XGBoost</span>
+        <span class="tag">LightGBM</span>
+        <span class="tag">Scikit-learn</span>
+        <span class="tag">WEKA</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-label">Languages</div>
+      <div class="skill-card-title">Programming</div>
+      <div class="skill-tags">
+        <span class="tag">Python</span>
+        <span class="tag">C++</span>
+        <span class="tag">Kotlin</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">HTML/CSS</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-label">Platforms</div>
+      <div class="skill-card-title">Tools & Infra</div>
+      <div class="skill-tags">
+        <span class="tag">Git</span>
+        <span class="tag">Android</span>
+        <span class="tag">Claude API</span>
+        <span class="tag">Google Maps SDK</span>
+        <span class="tag">Linux</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- EDUCATION -->
+<div class="section" id="education">
+  <div class="section-label">Education</div>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-school">Simon Fraser University</div>
+      <div class="edu-degree">BSc Computing Science</div>
+      <div class="edu-year">Graduated April 2026 · Burnaby, BC</div>
+      <div class="course-chips">
+        <span class="chip chip-highlight">CMPT 412 — Image Processing</span>
+        <span class="chip chip-highlight">CMPT 464 — Computer Vision</span>
+        <span class="chip chip-highlight">CMPT 363 — Graphics</span>
+        <span class="chip chip-highlight">CMPT 361 — 3D Graphics</span>
+        <span class="chip">CMPT 419 — ML</span>
+        <span class="chip">CMPT 340 — ML</span>
+        <span class="chip">CMPT 417 — MAPF</span>
+        <span class="chip">CMPT 310 — AI</span>
+      </div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-school">Languages</div>
+      <div class="edu-degree">Bilingual</div>
+      <div class="edu-year">Native-level English · Korean</div>
+      <p style="margin-top: 14px; font-size: 13px; color: var(--text-secondary); line-height: 1.65;">
+        Raised and educated in Canada with Korean heritage. Eligible for F-4 overseas Korean visa. Available to work in both Canada and South Korea.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<div class="section" id="contact">
+  <div class="section-label">Contact</div>
+  <div class="contact-row">
+    <a class="contact-item" href="mailto:your@email.com">
+      <i class="ti ti-mail"></i> your@email.com
+    </a>
+    <a class="contact-item" href="https://github.com/YOUR_USERNAME" target="_blank">
+      <i class="ti ti-brand-github"></i> GitHub
+    </a>
+    <a class="contact-item" href="https://linkedin.com/in/YOUR_USERNAME" target="_blank">
+      <i class="ti ti-brand-linkedin"></i> LinkedIn
+    </a>
+    <span class="contact-item">
+      <i class="ti ti-map-pin"></i> Surrey, BC · Open to Seoul
+    </span>
+  </div>
+</div>
+
+<footer class="footer">
+  <span>Sunghwan (Kai) Cho · 2026</span>
+  <span style="color: var(--text-tertiary);">SFU Computing Science</span>
+</footer>
+
+</body>
+</html>
